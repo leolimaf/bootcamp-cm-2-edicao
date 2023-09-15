@@ -10,7 +10,7 @@ function App() {
     const [produtos, setProdutos] = useState<Array<Product>>();
     async function buscarProdutos(nome:string){
         
-            await fetch(`https://localhost:7199/Produto/BuscarProdutos?nome=${nome}`).then((data) => {
+            await fetch(`https://localhost:7199/Produto/BuscarProdutosPorNome?nome=${nome}`).then((data) => {
               return data.json()
             }).then((response) => {
                 setProdutos(response);

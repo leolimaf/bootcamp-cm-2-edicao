@@ -1,8 +1,8 @@
 export type Product = {
     id: string,
-    title: string,
-    price: number,
-    available_quantity: number,
+    nome: string,
+    preco: number,
+    quantidadeDisponivel: number,
     url: string,
     thumbnail: string
 }
