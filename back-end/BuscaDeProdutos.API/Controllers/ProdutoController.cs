@@ -1,4 +1,3 @@
-using DesafioBootcamp.Factory;
 using DesafioBootcamp.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

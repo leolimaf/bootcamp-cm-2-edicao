@@ -5,11 +5,11 @@ using Newtonsoft.Json;
 
 namespace DesafioBootcamp.DAOs;
 
-public class LojaMercadoLivreDAO : ILojasCadastradas
+public class LojaMercadoLivreDAO : ILojasCadastradasDAO
 {
     private static readonly string _apiKey = "0UgEpizqJM7CSl3O9nbIzrTvTuaU2JZG";
     private static readonly string _urlBase = "https://api.mercadolibre.com";
-    public List<ProdutoMercardoLivreItem> Results { get; set; } = new();
+    public List<ProdutoMercardoLivreItemDAO> Results { get; set; } = new();
     
     public async Task<List<ProdutoDTO>> BuscarProdutos(string query)
     {
@@ -38,7 +38,7 @@ public class LojaMercadoLivreDAO : ILojasCadastradas
     }
 }
 
-public class ProdutoMercardoLivreItem
+public class ProdutoMercardoLivreItemDAO
 {
     public string Id { get; set; }
     public string Title { get; set; }

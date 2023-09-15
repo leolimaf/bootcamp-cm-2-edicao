@@ -2,7 +2,7 @@
 
 namespace DesafioBootcamp.DAOs.Interfaces;
 
-public interface ILojasCadastradas
+public interface ILojasCadastradasDAO
 {
     Task<List<ProdutoDTO>> BuscarProdutos(string query);
     Task<List<ProdutoDTO>> BuscarProdutosPorId(string id);

@@ -5,11 +5,11 @@ using Newtonsoft.Json;
 
 namespace DesafioBootcamp.DAOs;
 
-public class LojaAmazonDAO : ILojasCadastradas
+public class LojaAmazonDAO : ILojasCadastradasDAO
 {
     private static readonly string _apiKey = "c3c7dec8b2msh11b9af671cb7e29p14b408jsnf34ad4d67522";
     private static readonly string _urlBase = "https://amazon23.p.rapidapi.com";
-    public List<ProdutoAmazonItem> Result { get; set; } = new();
+    public List<ProdutoAmazonItemDAO> Result { get; set; } = new();
     
     public async Task<List<ProdutoDTO>> BuscarProdutos(string query)
     {
@@ -54,14 +54,14 @@ public class LojaAmazonDAO : ILojasCadastradas
     }
 }
 
-public class ProdutoAmazonItem
+public class ProdutoAmazonItemDAO
 {
     public string Asin { get; set; }
     public string Title { get; set; }
     public string Url { get; set; }
     public string Thumbnail { get; set; }
     public int AvailableQuantity { get; set; }
-    public ProdutoPrecoAmazon Price { get; set; } = new ();
+    public ProdutoPrecoAmazonDAO Price { get; set; } = new ();
 
     public ProdutoDTO ToProdutoDTO()
     {
@@ -77,7 +77,7 @@ public class ProdutoAmazonItem
     }
 }
 
-public class ProdutoPrecoAmazon
+public class ProdutoPrecoAmazonDAO
 {
     public float CurrentPrice { get; set; }
 }
