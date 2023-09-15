@@ -1,0 +1,7 @@
+.hero-body .container {
+  max-width: 700px;
+}
+
+.hero-body .title {
+  color: hsl(192, 17%, 99%) !important;
+}
