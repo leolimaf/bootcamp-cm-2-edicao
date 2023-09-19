@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import './styles.css';
-import { Product } from '../Section/types';
+import { HiMagnifyingGlass } from 'react-icons/hi2';
 
 function Navbar(){
 
     const inputProd = useRef<HTMLInputElement>(null)
-    const [produtos, setProdutos] = useState<Array<Product>>();
     async function buscarProdutos(nome:string){
         
             await fetch(`https://localhost:7199/Produto/BuscarProdutos?nome=${nome}`).then((data) => {
@@ -22,7 +21,7 @@ function Navbar(){
                     <input className="input" type="search" placeholder="" ref={inputProd} />
                 </div>
                 <div className="control">
-                    <button className="button button-shipping is-info" onClick={() => buscarProdutos(inputProd.current?.value as string)}>Pesquisar</button>
+                    <button className="button button-shipping is-info" onClick={() => buscarProdutos(inputProd.current?.value as string)}>Pesquisar <HiMagnifyingGlass /></button>
                 </div>
             </div>
         </nav>

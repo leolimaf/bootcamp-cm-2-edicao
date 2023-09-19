@@ -3,5 +3,9 @@
 }
 
 .hero-body .title {
-  color: hsl(192, 17%, 99%) !important;
+  color: hsl(192, 17%, 99%);
+}
+
+.hero, .is-info {
+  background-color: #269e50 !important;
 }
