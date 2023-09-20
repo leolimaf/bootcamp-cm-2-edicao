@@ -1,35 +1,27 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
-import Header from './Header';
-import Navbar from './Navbar';
-import Section from './Section';
-import { Product } from './Section/types';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import Section from './components/Section';
+import { Product } from './components/Section/types';
 
 function App() {
-  const inputProd = useRef<HTMLInputElement>(null)
+  
     const [produtos, setProdutos] = useState<Array<Product>>();
+
     async function buscarProdutos(nome:string){
         
-            await fetch(`https://localhost:7199/Produto/BuscarProdutosPorNome?nome=${nome}`).then((data) => {
-              return data.json()
-            }).then((response) => {
-                setProdutos(response);
-            })
+      await fetch(`https://localhost:7199/Produto/BuscarProdutosPorNome?nome=${nome}`).then((data) => {
+        return data.json()
+      }).then((response) => {
+          setProdutos(response);
+      })
     }
 
   return (
     <div>
       <Header />
-      <nav className="box cta">
-            <div className="field has-addons">
-                <div className="control">
-                    <input className="input" type="search" placeholder="" ref={inputProd} />
-                </div>
-                <div className="control">
-                    <button className="button button-shipping is-info" onClick={() => buscarProdutos(inputProd.current?.value as string)}>Pesquisar</button>
-                </div>
-            </div>
-        </nav>
+      <Navbar onSearch = {buscarProdutos} />
       {produtos && <Section products={produtos} />}
     </div>
   );
